@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Todothing extends Model
 {
     use HasFactory;
+    protected $table="todothings";
+    protected $fillable=[
+        "deadline",
+        "title",
+        "detail"
+    ];
 }
