@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',"App\Http\Controllers\TodothingController@showList")->name("showlist");
+Route::get('/{id}',"App\Http\Controllers\TodothingController@detailList")->name("detaillist");
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
