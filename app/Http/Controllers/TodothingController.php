@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Todothing;
 use DateTime;
 use DateInterval;
+use App\Http\Requests\TodothingRequest;
 
 class TodothingController extends Controller
 {
@@ -22,5 +23,9 @@ class TodothingController extends Controller
         ["thing"=>$thing,
         "today_add"=>$today_add,
         "deadline"=>$deadline]);
+    }
+    function Create(TodothingRequest $request){
+        Todothing::create($request->all());
+        return redirect(route("wholeshow"));
     }
 }

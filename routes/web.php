@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',"App\Http\Controllers\TodothingController@showList")->name("showlist");
 Route::get('/{id}',"App\Http\Controllers\TodothingController@detailList")->name("detaillist");
-
+Route::post('/create',"App\Http\Controllers\TodothingController@Create")->name("create");
 
 Route::get('/dashboard', function () {
     return view('dashboard');
