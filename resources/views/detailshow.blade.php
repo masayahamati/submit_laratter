@@ -15,9 +15,9 @@
     </tr>
 </table>
 @if($today_add>$deadline)
-<div>残り一週間を切りました。急いで予定を消化しよう！</div>
+<div class="encourage_msg">残り一週間を切りました。急いで予定を消化しよう！</div>
 @else
-<div>まだ一週間以上あります。今のうちからやっておこう！</div>
+<div class="normal_msg">まだ一週間以上あります。今のうちからやっておこう！</div>
 @endif
 
 @endsection

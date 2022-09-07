@@ -15,4 +15,9 @@ class Todothing extends Model
         "detail"
     ];
     public $timestamps = false;
+
+    public static function getOrderBy()
+  {
+    return self::orderBy('deadline')->get();
+  }
 }

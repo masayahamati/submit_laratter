@@ -1,6 +1,6 @@
 @extends("temp")
 @section("content")
-<form method="POST" action="/edit" onSubmit="return checkSubmit()">
+<form method="POST" action="/edit">
 @csrf
  <h1>Todo追加</h1>
    <div class="form-sample">

@@ -8,6 +8,7 @@
         <th>タイトル</th>
         <th>内容</th>
         <th>更新</th>
+        <th>削除</th>
     </tr>
 @foreach($things as $thing)
     <tr>
@@ -15,6 +16,7 @@
         <td>{{$thing->title}}</td>
         <td><a href="/{{$thing->id}}">詳細</td>
         <td><a href="/editlist/{{$thing->id}}">更新</td>
+        <td><a href="/delete/{{$thing->id}}">削除</td>
     </tr>
 @endforeach
 </table>

@@ -11,7 +11,7 @@ use App\Http\Requests\TodothingRequest;
 class TodothingController extends Controller
 {
     function showList(){
-        $things=Todothing::all();
+        $things=Todothing::getOrderBy();
         return view("wholeshow",["things"=>$things]);
     }
     function createList(){
@@ -42,5 +42,13 @@ class TodothingController extends Controller
      function editList($id){
         $thing=Todothing::find($id);
             return view("edit",["thing"=>$thing]);
+    }
+     function deleteList($id){
+        $thing=Todothing::find($id);
+        return view("delete",["thing"=>$thing]);
+    }
+    function Delete(Request $Request){
+        Todothing::destroy($Request->id);
+        return redirect(route("showlist"));
     }
 }
