@@ -31,4 +31,16 @@ class TodothingController extends Controller
             "today_add"=>$today_add,
             "deadline"=>$deadline]);
     }
+    function Edit(TodothingRequest $request){
+        $thing=Todothing::find($request->id);
+        $thing->deadline=$request->deadline;
+        $thing->title=$request->title;
+        $thing->detail=$request->detail;
+        $thing->save();
+        return redirect(route("showlist"));
+    }
+     function editList($id){
+        $thing=Todothing::find($id);
+            return view("edit",["thing"=>$thing]);
+    }
 }

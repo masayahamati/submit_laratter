@@ -17,6 +17,10 @@ Route::get('/',"App\Http\Controllers\TodothingController@showList")->name("showl
 Route::get('/createlist',"App\Http\Controllers\TodothingController@createList")->name("createlist");
 Route::post('/create',"App\Http\Controllers\TodothingController@Create")->name("create");
 Route::get('/{id}',"App\Http\Controllers\TodothingController@detailList")->name("detaillist");
+Route::get('/editlist/{id}',"App\Http\Controllers\TodothingController@editList")->name("editlist");
+Route::post('/edit',"App\Http\Controllers\TodothingController@Edit")->name("edit");
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
