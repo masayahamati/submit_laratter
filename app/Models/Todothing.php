@@ -14,4 +14,5 @@ class Todothing extends Model
         "title",
         "detail"
     ];
+    public $timestamps = false;
 }
