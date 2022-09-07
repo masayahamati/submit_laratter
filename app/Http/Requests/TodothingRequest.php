@@ -24,7 +24,7 @@ class TodothingRequest extends FormRequest
     public function rules()
     {
         return [
-            "deadline"=>"required|date",
+            "deadline"=>"required",
             "title"=>"required",
             "detail"=>"required"
         ];

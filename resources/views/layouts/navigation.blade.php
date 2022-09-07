@@ -19,13 +19,13 @@
         <!-- 🔽 一覧ページへのリンクを追加 -->
         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
           <x-nav-link :href="route('showlist')" :active="request()->routeIs('showlist')">
-            {{ __('Index') }}
+            {{ __('showlist') }}
           </x-nav-link>
         </div>
         <!-- 🔽 作成ページへのリンクを追加 -->
         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
           <x-nav-link :href="route('create')" :active="request()->routeIs('create')">
-            {{ __('Create') }}
+            {{ __('create') }}
           </x-nav-link>
         </div>
       </div>
