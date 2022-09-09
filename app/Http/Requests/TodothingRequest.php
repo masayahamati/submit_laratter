@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+
 class TodothingRequest extends FormRequest
 {
     /**
@@ -24,10 +25,11 @@ class TodothingRequest extends FormRequest
     public function rules()
     {
         return [
-            "deadline"=>"required",
+            "deadline"=>"required|date|after:today",
             "title"=>"required",
             "detail"=>"required"
         ];
+        /*予定表なので今日より前のものを登録できないようにバリデーションした */
     }
 }
 

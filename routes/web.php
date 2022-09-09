@@ -12,8 +12,18 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::get('/',"App\Http\Controllers\TodothingController@showList")->name("showlist");
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
+
+
+Route::get('/showlist',"App\Http\Controllers\TodothingController@showList")->name("showlist");
 Route::get('/createlist',"App\Http\Controllers\TodothingController@createList")->name("createlist");
 Route::post('/create',"App\Http\Controllers\TodothingController@Create")->name("create");
 Route::get('/{id}',"App\Http\Controllers\TodothingController@detailList")->name("detaillist");
@@ -23,9 +33,4 @@ Route::get('/delete/{id}',"App\Http\Controllers\TodothingController@deleteList")
 Route::post('/delete',"App\Http\Controllers\TodothingController@Delete")->name("delete");
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
-require __DIR__.'/auth.php';
 

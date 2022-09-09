@@ -7,29 +7,44 @@ use App\Models\Todothing;
 use DateTime;
 use DateInterval;
 use App\Http\Requests\TodothingRequest;
+use Illuminate\Support\Facades\Auth;
 
 class TodothingController extends Controller
 {
     function showList(){
-        $things=Todothing::getOrderBy();
+        $things=Todothing::getOrderByAndId();
         return view("wholeshow",["things"=>$things]);
     }
     function createList(){
         return view("create");
     }
     function Create(TodothingRequest $request){
-        Todothing::create($request->all());
+        /*$request->all()は配列を返すので
+        その配列の中にAuth::user()->idを入れてあげればよい*/
+        /*Auth::userの中には認証済みuserが入っている */
+        $input=$request->all();
+        $input["user_id"]=Auth::id();
+        /*dd($input);*/
+        Todothing::create($input);
         return redirect(route("showlist"));
     }
     function detailList($id){
         $thing=Todothing::find($id);
         $today=new DateTime();
         $today_add=$today->add(new DateInterval("P7D"));
+        if($thing===null){
+            dd($thing);
+            return redirect("showlist");
+        }
+        else{
             $deadline=new DateTime($thing->deadline);
             return view("detailshow",
             ["thing"=>$thing,
             "today_add"=>$today_add,
             "deadline"=>$deadline]);
+        }
+        /*なぜか呼んでないのにdetail関数が呼び出される時が何度かあった。
+        なぜかわからなかったがif処理で何とか処理した */
     }
     function Edit(TodothingRequest $request){
         $thing=Todothing::find($request->id);

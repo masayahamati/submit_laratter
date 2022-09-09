@@ -18,8 +18,11 @@ return new class extends Migration
             $table->date("deadline");
             $table->text("title");
             $table->longText("detail");
-
+            $table->tinyInteger("user_id");
         });
+        /*tinyIntegerは認証済みユーザー固有の情報を取得
+        するためにTodothingテーブルにuser_id
+        を追加した。 */
     }
 
     /**

@@ -24,15 +24,6 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="{{route('createlist')}}">作成<span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#"></a>
-                </li>
             </ul>
         </div>
     </nav>
