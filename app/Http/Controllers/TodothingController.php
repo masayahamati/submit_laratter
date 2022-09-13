@@ -13,8 +13,21 @@ class TodothingController extends Controller
 {
     function showList(){
         $things=Todothing::getOrderByAndId();
+        $today=new DateTime();
+        $i=0;
+        foreach($things as $thing){
+        $deadline=new DateTime($thing->deadline);
+            if($today>$deadline){
+                Todothing::destroy($thing->id);
+            }
+            else{
+                continue;
+            }
+        }
         return view("wholeshow",["things"=>$things]);
     }
+    /*日にちが過ぎると自動で予定が消える処理 */
+
     function createList(){
         return view("create");
     }
