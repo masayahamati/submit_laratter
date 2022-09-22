@@ -1,64 +1,31 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+プロダクトの紹介
+Todoアプリ
+操作方法
+まずホーム画面に行くとログイン画面が出てきます。そこでログインをしていただくと、ダッシュボード画面に行きます。そのページからshowlistの
+リンクを押していただくと、Todoアプリの画面に遷移することができます。
+①全体表示
+ここではあるユーザーが登録している情報を確認することができます。これはユーザー固有の情報であり、ログインした時の
+ユーザー情報から判別して情報を取得します。また日付が早いものが上に来ており、どのタスクを優先的にすべきか見ることができます。
+②詳細画面
+詳細のリンクをクリックするとそのタスクの詳細情報を確認することができます。またこの画面では現在の日付と締め切りの日付から計算をして一週間を
+切っていると”早くタスクを完了しましょう”という文字が一週間以上あると”まだまだ時間があります。早めに取り組みましょう”とメッセージが出る処理
+を書いています。
+③登録画面
+登録画面では締め切り、タイトル、詳細を入力する画面が出てきます。ここでどれか一つでも入力されてないとバリデーションではじかれます。
+またTodoアプリなので過去の日付を入れようとしてもはじくようにバリデーションを設定しました。
+④削除画面
+削除画面は削除ボタンを押してそのまま削除されず一度画面を遷移して、削除するようにしました。
+⑤更新画面
+更新画面はほとんど登録画面と同じです。
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
-
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+感想
+まずルーティングのことですが、僕は手作業で一個ずつしました。授業を受けてからまとめてルーティングを作ることができるのかと知り、すごいな
+と思いました。しかし自分でルーティングの流れを書くことでどのようにMVCが動いているのかを把握することができました。ログイン画面とダッシュボードについて
+は自分で実装したかったのですが認証まわりが難しく、断念しフォーマットのものを使わせていただいたので統一感がなくなってしまっているので残念です。
+自分でログイン機能も実装してみたいと思いました。
+技術的なポイントとしてはTodothingのmodelクラスでデータベースから同じユーザーのものだけを取得する関数を実装したことがあります。
+このためにTodothingテーブルにuser_idというカラムを追加しました。またこれに関係してTodothingControllerのcreate処理も工夫をしました。
+createで追加する情報はuser_idが含まれますが、formから送られてくる情報にはuser_idが含まれていません。そこで
+formから送られてきた情報にAuth::id()でuserのid情報を追加しデータベースに追加しました。そして必要な情報が受け取る関数によって違ったので
+バリデーションの中身も変える必要がありました。そのためRequestクラスを使ったり、自分で定義したTodothingRequestクラスを使ったりしました。
+またhtml側ではhtmlの継承を行い、ナビゲーションバーなど同じ部分の表示は一つのファイルにまとめてそれを継承して少ないコードで実現しました。
