@@ -14,7 +14,6 @@ class TodothingController extends Controller
     function showList(){
         $things=Todothing::getOrderByAndId();
         $today=new DateTime();
-        $i=0;
         foreach($things as $thing){
         $deadline=new DateTime($thing->deadline);
             if($today>$deadline){
@@ -46,7 +45,6 @@ class TodothingController extends Controller
         $today=new DateTime();
         $today_add=$today->add(new DateInterval("P7D"));
         if($thing===null){
-            dd($thing);
             return redirect("showlist");
         }
         else{
@@ -56,6 +54,7 @@ class TodothingController extends Controller
             "today_add"=>$today_add,
             "deadline"=>$deadline]);
         }
+        
         /*なぜか呼んでないのにdetail関数が呼び出される時が何度かあった。
         なぜかわからなかったがif処理で何とか処理した */
     }
