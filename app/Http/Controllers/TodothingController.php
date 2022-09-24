@@ -54,6 +54,7 @@ class TodothingController extends Controller
             "today_add"=>$today_add,
             "deadline"=>$deadline]);
         }
+        
         /*なぜか呼んでないのにdetail関数が呼び出される時が何度かあった。
         なぜかわからなかったがif処理で何とか処理した */
     }
